@@ -1,0 +1,16 @@
+package com.yasinmoridi.daneshjooyarFake.data.model
+
+data class CourseSection(
+    val id: Int=-0,
+    val title: String="",
+    val videoUri:String="",
+)
+
+data class CourseItem(
+    val id:Int=0,
+    val name:String="",
+    val title:String="",
+    val image:String="",
+    val introductionVideo:String = "",
+    val section:List<CourseSection> = emptyList(),
+)

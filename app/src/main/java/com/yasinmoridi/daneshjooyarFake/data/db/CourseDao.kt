@@ -1,0 +1,20 @@
+package com.yasinmoridi.daneshjooyarFake.data.db
+
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.Upsert
+import com.yasinmoridi.daneshjooyarFake.data.model.CourseItemDb
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface CourseDao {
+
+    @Query("SELECT watchedRanges FROM CourseItemDb WHERE id = :id")
+    fun getWatchedRanges(id: Int): Flow<String>
+
+    @Upsert
+    suspend fun upsertCourseItem(courseItemDb: CourseItemDb)
+
+    @Query("SELECT * FROM CourseItemDb WHERE id = :id")
+    fun getCourseItem2(id: Int): Flow<CourseItemDb?>
+}
