@@ -9,15 +9,6 @@ android {
     namespace = "com.yasinmoridi.daneshjooyarFake"
     compileSdk = 34
 
-
-    signingConfigs {
-        create("release") {
-            keyAlias = "key0"
-            keyPassword = "123456"
-            storeFile = file("T:\\ZoriProjects\\Alireza\\Daneshjooyar\\key.jks")
-            storePassword = "123456"
-        }
-    }
     defaultConfig {
         applicationId = "com.yasinmoridi.daneshjooyarFake"
         minSdk = 24
@@ -33,13 +24,12 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources =true
+            isMinifyEnabled = false
+            isShrinkResources =false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
